@@ -4,8 +4,8 @@ import javax.swing.*;
 
 public class Visual extends JFrame
 {
-    JPanel taskList;
-    JPanel inputTask;
+    TaskList taskList;
+    InputTask inputTask;
 
     public Visual()
     {        
