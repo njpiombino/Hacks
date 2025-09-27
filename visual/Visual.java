@@ -4,24 +4,20 @@ import javax.swing.JFrame;
 
 public class Visual extends JFrame
 {
-    private JFrame frame;
-    private int timerInput; 
-    
-
+    TaskList taskList;
+    InputTask inputTask;
 
     public Visual()
-    {
-        this.timerInput = 0;
-        this.frame = makeWindow();
-    }
+    {        
+        this.setTitle("Task Master");
+        this.setSize(400, 300);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setVisible(true);
 
-    private JFrame makeWindow()
-    {
-        JFrame frame = new JFrame("Task_Master");
-        frame.setSize(400, 300);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-        return frame;
+        taskList = new TaskList();
+        inputTask = new InputTask();
+        this.add(taskList);
+        this.add(inputTask);
     }
 }
 
