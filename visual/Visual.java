@@ -13,6 +13,7 @@ public class Visual extends JFrame
         this.setSize(400, 300);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
 
         taskList = new TaskList();
         inputTask = new InputTask();
