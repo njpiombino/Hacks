@@ -1,5 +1,4 @@
 package main;
-<<<<<<< HEAD
 import visual.Visual;
 import tasks.Task;
 public class Main
@@ -18,13 +17,6 @@ public class Main
 
         Visual frame = new Visual();
         frame.setVisible(true);
-=======
 
-import visual.Visual;
-
-public class Main {
-    public static void main(String[] args) {
-        Visual v = new Visual();
->>>>>>> bb56d98c236269d4068efc6fdfe0809df2507194
     }
 }
