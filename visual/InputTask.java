@@ -6,20 +6,35 @@ import java.awt.event.*;
 
 public class InputTask extends JPanel{
 
-    private JLabel label;
+    private final JLabel label;
 
-    private JButton button;
+    private final JTextField inputField;
 
-    private JTextField inputField;
+    private final JLabel result;
 
     public InputTask() 
     {
         this.setLayout(new FlowLayout());
         this.label = new JLabel("Write a Task");
-        this.button = new JButton("Enter");
-        this.inputField = new JTextField(10);
+        this.inputField = new JTextField(30);
+        EnterKey();
+        this.result = new JLabel(" ");
+        this.result.setAlignmentX(Component.LEFT_ALIGNMENT);
         this.add(label);
-        this.add(button);
         this.add(inputField);
+        this.add(result);
+        
     }
+
+    private void EnterKey()
+    {
+        inputField.addActionListener(new ActionListener() 
+        {
+            public void actionPerformed(ActionEvent e) {
+                String text = inputField.getText();
+                result.setText(text);
+            }
+        });
+    }
+    
 }

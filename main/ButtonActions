@@ -1,5 +1,10 @@
 package main;
 
+import visual.Visual;
+import tasks.Task;
+import javax.swing.AbstractAction;
+import javax.swing.JButton;
+
 public ButtonActions extends AbstractAction
 {
     
