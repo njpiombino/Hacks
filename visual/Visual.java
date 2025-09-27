@@ -1,5 +1,6 @@
 package visual;
 
+import java.awt.GridLayout;
 import javax.swing.*;
 
 public class Visual extends JFrame
@@ -18,7 +19,7 @@ public class Visual extends JFrame
         taskList = new TaskList();
         inputTask = new InputTask();
         JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
+        panel.setLayout(new GridLayout(2, 1,5,5));
         this.add(panel);
         panel.add(taskList);
         panel.add(inputTask);
