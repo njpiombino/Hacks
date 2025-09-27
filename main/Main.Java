@@ -1,6 +1,8 @@
 package main;
-
-public class Main {
+import visual.Visual;
+import tasks.Task;
+public class Main
+{
     public static void main(String[] args) {
         System.out.println("Hello, World!");
         String x = "link";
@@ -12,5 +14,8 @@ public class Main {
         for (int i = 0; i < 10; i++) {
             System.out.println(i);
         }
+
+        Visual frame = new Visual();
+        frame.setVisible(true);
     }
 }
