@@ -1,11 +1,11 @@
 package visual;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 public class Visual extends JFrame
 {
-    TaskList taskList;
-    InputTask inputTask;
+    JPanel taskList;
+    JPanel inputTask;
 
     public Visual()
     {        
