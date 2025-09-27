@@ -17,8 +17,10 @@ public class Visual extends JFrame
 
         taskList = new TaskList();
         inputTask = new InputTask();
-        this.add(taskList);
-        this.add(inputTask);
+        JPanel panel = new JPanel();
+        this.add(panel);
+        panel.add(taskList);
+        panel.add(inputTask);
     }
 }
 
