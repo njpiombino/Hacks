@@ -14,12 +14,13 @@ public class InputTask extends JPanel{
 
     public InputTask() 
     {
-        this.setLayout(new FlowLayout());
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.label = new JLabel("Write a Task");
         this.inputField = new JTextField(30);
         EnterKey();
         this.result = new JLabel(" ");
         this.result.setAlignmentX(Component.LEFT_ALIGNMENT);
+        this.result.setAlignmentY(Component.BOTTOM_ALIGNMENT);
         this.add(label);
         this.add(inputField);
         this.add(result);
