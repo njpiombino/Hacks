@@ -6,7 +6,7 @@ public class Main {
         String x = "link";
         if(x.equals("link"))
         {
-        	System.out.print(x);
+        	System.out.println(x);
         }
 
         for (int i = 0; i < 10; i++) {
