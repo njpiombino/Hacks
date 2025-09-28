@@ -3,6 +3,8 @@ package visual;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+
 import main.TaskModel;
 import tasks.Task;
 
@@ -25,6 +27,7 @@ public class InputTask extends JPanel{
     {
         model = m;
 
+        this.setBorder(new EmptyBorder(20,20,20,20));
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.label = new JLabel("Write a Task");
         this.inputField = new JTextField(30);
@@ -43,9 +46,9 @@ public class InputTask extends JPanel{
         fieldPanel.add(new JLabel("Second"));
 
         fieldPanel.add(inputField);
-        hText = new JTextField("0");
-        mText = new JTextField("0");
-        sText = new JTextField("0");
+        hText = new JTextField("00");
+        mText = new JTextField("00");
+        sText = new JTextField("00");
         hText.setMaximumSize(new Dimension(3,2));
         fieldPanel.add(hText);
         fieldPanel.add(mText);
@@ -53,6 +56,7 @@ public class InputTask extends JPanel{
 
         this.button = new JButton("Submit");
         button.setAlignmentX(CENTER_ALIGNMENT);
+        this.add(Box.createVerticalStrut(5));
         this.add(button);
         EnterKey();
 
