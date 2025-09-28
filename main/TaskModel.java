@@ -10,6 +10,7 @@ public class TaskModel implements ActionListener {
     private Visual frame;
     private Task[] tasks = {};
     private Task currentTask;
+    private int current = 0;
     private Timer timer = new Timer(1000, this);
 
     public TaskModel() {
@@ -30,8 +31,27 @@ public class TaskModel implements ActionListener {
             currentTask = tasks[0];
             timer.setInitialDelay(1000);
             timer.start();
+            frame.setCurrent(currentTask);
         }
 
+        frame.updateTasks(tasks);
+    }
+
+    public void incrementTask()
+    {
+        timer.stop();
+        current++;
+        if(current < tasks.length)
+        {
+            currentTask = tasks[current];
+            timer.setInitialDelay(1000);
+            timer.start();
+            frame.setCurrent(currentTask);
+        }
+        else if(current >= tasks.length)
+        {
+            current--;
+        }
         frame.updateTasks(tasks);
     }
 

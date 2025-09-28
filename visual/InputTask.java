@@ -60,7 +60,8 @@ public class InputTask extends JPanel{
         buttons.setAlignmentX(CENTER_ALIGNMENT);
         this.add(Box.createVerticalStrut(5));
         this.add(buttons);
-        EnterKey();
+        Submit();
+        NextTask();
 
     }
 
@@ -70,14 +71,12 @@ public class InputTask extends JPanel{
         Buttons.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 0));
         this.submit = new JButton("Submit");
         this.nextTask = new JButton("Next Task");
-        // submit.setAlignmentX(LEFT_ALIGNMENT);
-        // nextTask.setAlignmentX(RIGHT_ALIGNMENT);
         Buttons.add(submit);
         Buttons.add(nextTask);
         return Buttons;
     }
 
-    private void EnterKey()
+    private void Submit()
     {
         submit.addActionListener(new ActionListener() 
         {
@@ -97,6 +96,16 @@ public class InputTask extends JPanel{
                     JOptionPane.showMessageDialog(InputTask.this, "Please Input a Number!!! They look like this \"0\"","Not A Number",JOptionPane.ERROR_MESSAGE);
                 }
                 
+            }
+        });
+    }
+
+    private void NextTask()
+    {
+        nextTask.addActionListener(new ActionListener() 
+        {
+            public void actionPerformed(ActionEvent e) {
+                model.incrementTask();
             }
         });
     }

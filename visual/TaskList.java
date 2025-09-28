@@ -1,6 +1,7 @@
 package visual;
 
 import java.awt.*;
+import javax.crypto.NullCipher;
 import javax.swing.*;
 import tasks.Task;
 
@@ -58,21 +59,26 @@ public class TaskList extends JPanel{
             int[] ct = tasks[i].getCurrentTimes();
             int[] gt = tasks[i].getGoalTimes();
             String s = "Task " + (i+1) + ". "; 
-            //+ tasks[i].getName();
-            // for (int j = tasks[i].getName().length(); j<30;j++) {
-            //     s += ' ';
-            // }
-            String currentTask = tasks[i].getName();
-            if(currentTask.length() > 17)
+            String nextTask = tasks[i].getName();
+            if(nextTask.length() > 17)
             {
-                currentTask = currentTask.substring(0,16);
+                nextTask = nextTask.substring(0,16);
             }
             
-            s += String.format("%-17s%02d:%02d:%02d      %02d:%02d:%02d",
-                   currentTask, ct[0], ct[1], ct[2],
+            s += String.format("%-17s%02d:%02d:%02d      %02d:%02d:%02d                                                                    ",
+                   nextTask, ct[0], ct[1], ct[2],
                    gt[0], gt[1], gt[2]);
             JLabel l = new JLabel(s);
             l.setFont(new Font("Monospaced", Font.BOLD, 12));
+            if(currentTask == tasks[i] || currentTask == null)
+            {
+                l.setOpaque(true);
+                l.setBackground(Color.GRAY);
+            }
+            // if(currentTask.getCurrentTimes() >= currentTask.getGoalTimes())
+            // {
+
+            // }
             lowerPanel.add(l);
         }
         lowerPanel.repaint();
@@ -83,5 +89,6 @@ public class TaskList extends JPanel{
 
     public void setCurrent(Task t) {
         currentTask = t;
+        displayTasks();
     }
 }
