@@ -73,9 +73,9 @@ public class TaskList extends JPanel{
             s += String.format("%-17s%02d:%02d:%02d      %02d:%02d:%02d                                                                    ",
                    nextTask, ct[0], ct[1], ct[2],
                    gt[0], gt[1], gt[2]);
-            JLabel l1 = new JLabel(s.substring(0,17));
-            JLabel l2 = new JLabel(s.substring(17,35));
-            JLabel l3 = new JLabel(s.substring(35));
+            JLabel l1 = new JLabel(s.substring(0,25));
+            JLabel l2 = new JLabel(s.substring(25,39));
+            JLabel l3 = new JLabel(s.substring(39));
             l1.setFont(new Font("Monospaced", Font.BOLD, 12));
             l2.setFont(new Font("Monospaced", Font.BOLD, 12));
             l3.setFont(new Font("Monospaced", Font.BOLD, 12));
