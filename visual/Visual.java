@@ -40,8 +40,8 @@ public class Visual extends JFrame
         taskList.displayTasks();
     }
 
-    public void setCurrent(Task t) {
-        taskList.setCurrent(t);
+    public void setCurrent(Task t, int index) {
+        taskList.setCurrent(t, index);
     }
 }
 

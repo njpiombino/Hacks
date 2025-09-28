@@ -9,6 +9,10 @@ public class TaskList extends JPanel{
     private JPanel upperPanel;
     private JPanel lowerPanel;
     private Task currentTask;
+    private int currentIndex;
+    private final Color GRAY = new Color(209, 216, 219);
+	private final Color GREEN = new Color(0, 180, 92);
+    private final Color RED = new Color(185, 27, 27);
 
     public TaskList() {
         this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
@@ -46,6 +50,8 @@ public class TaskList extends JPanel{
         lowerPanel = new JPanel();
         lowerPanel.setLayout(new BoxLayout(lowerPanel, BoxLayout.Y_AXIS));
         lowerPanel.setFont(new Font("Monospaced", Font.PLAIN, 12));
+        lowerPanel.setOpaque(true);
+        lowerPanel.setBackground(GRAY);
         displayTasks();
         JScrollPane scrollPane = new JScrollPane(lowerPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         scrollPane.setPreferredSize(new Dimension(200, 100));
@@ -84,12 +90,25 @@ public class TaskList extends JPanel{
                 l2.setBackground(Color.GRAY);
                 l3.setBackground(Color.GRAY);
             }
+            else
+            {
+                l1.setBackground(GRAY);
+                l2.setBackground(GRAY);
+                l3.setBackground(GRAY);
+            }
 
             if(tasks[i].getCurTotal() <= tasks[i].getTotalTime()) {
-                l2.setForeground(Color.GREEN);
+                l2.setForeground(GREEN);
             }
             else {
-                l2.setForeground(Color.RED);
+                l2.setForeground(RED);
+            }
+
+            if(i < currentIndex)
+            {
+                l1.setBackground(Color.lightGray);
+                l2.setBackground(Color.lightGray);
+                l3.setBackground(Color.lightGray);
             }
 
             JPanel labelPanel = new JPanel();
@@ -108,8 +127,9 @@ public class TaskList extends JPanel{
         lowerPanel.revalidate();
     }
 
-    public void setCurrent(Task t) {
+    public void setCurrent(Task t, int index) {
         currentTask = t;
+        currentIndex = index;
         displayTasks();
     }
 }

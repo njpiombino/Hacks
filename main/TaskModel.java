@@ -31,7 +31,7 @@ public class TaskModel implements ActionListener {
             currentTask = tasks[0];
             // timer.setInitialDelay(1000);
             // timer.start();
-            frame.setCurrent(currentTask);
+            frame.setCurrent(currentTask, current);
         }
 
         frame.updateTasks(tasks);
@@ -46,7 +46,7 @@ public class TaskModel implements ActionListener {
             currentTask = tasks[current];
             // timer.setInitialDelay(1000);
             // timer.start();
-            frame.setCurrent(currentTask);
+            frame.setCurrent(currentTask, current);
         }
         else if(current >= tasks.length)
         {
@@ -58,7 +58,7 @@ public class TaskModel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         currentTask.incrementTime();
         frame.updateTasks(tasks);
-        frame.setCurrent(currentTask);
+        frame.setCurrent(currentTask, current);
     }
 
     public void StopTime()
