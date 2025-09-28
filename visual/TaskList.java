@@ -1,15 +1,14 @@
 package visual;
 
 import java.awt.*;
-import javax.crypto.NullCipher;
 import javax.swing.*;
 import tasks.Task;
 
 public class TaskList extends JPanel{
     private Task[] tasks = {};
-    JPanel upperPanel;
-    JPanel lowerPanel;
-    Task currentTask;
+    private JPanel upperPanel;
+    private JPanel lowerPanel;
+    private Task currentTask;
 
     public TaskList() {
         this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
@@ -68,18 +67,40 @@ public class TaskList extends JPanel{
             s += String.format("%-17s%02d:%02d:%02d      %02d:%02d:%02d                                                                    ",
                    nextTask, ct[0], ct[1], ct[2],
                    gt[0], gt[1], gt[2]);
-            JLabel l = new JLabel(s);
-            l.setFont(new Font("Monospaced", Font.BOLD, 12));
+            JLabel l1 = new JLabel(s.substring(0,17));
+            JLabel l2 = new JLabel(s.substring(17,35));
+            JLabel l3 = new JLabel(s.substring(35));
+            l1.setFont(new Font("Monospaced", Font.BOLD, 12));
+            l2.setFont(new Font("Monospaced", Font.BOLD, 12));
+            l3.setFont(new Font("Monospaced", Font.BOLD, 12));
+
+            l1.setOpaque(true);
+            l2.setOpaque(true);
+            l3.setOpaque(true);
+
             if(currentTask == tasks[i] || currentTask == null)
             {
-                l.setOpaque(true);
-                l.setBackground(Color.GRAY);
+                l1.setBackground(Color.GRAY);
+                l2.setBackground(Color.GRAY);
+                l3.setBackground(Color.GRAY);
             }
-            // if(currentTask.getCurrentTimes() >= currentTask.getGoalTimes())
-            // {
 
-            // }
-            lowerPanel.add(l);
+            if(tasks[i].getCurTotal() <= tasks[i].getTotalTime()) {
+                l2.setForeground(Color.GREEN);
+            }
+            else {
+                l2.setForeground(Color.RED);
+            }
+
+            JPanel labelPanel = new JPanel();
+            labelPanel.setLayout(new BoxLayout(labelPanel, BoxLayout.X_AXIS));
+            labelPanel.setOpaque(true);
+            lowerPanel.add(labelPanel);
+            labelPanel.add(l1);
+            labelPanel.add(l2);
+            labelPanel.add(l3);
+            labelPanel.repaint();
+            labelPanel.revalidate();
         }
         lowerPanel.repaint();
         this.repaint();
