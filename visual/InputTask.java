@@ -21,6 +21,8 @@ public class InputTask extends JPanel{
     private final JPanel buttons;
     private JButton submit;
     private JButton nextTask;
+    private JButton startTime;
+    private JButton stopTime;
 
     TaskModel model;
 
@@ -62,6 +64,8 @@ public class InputTask extends JPanel{
         this.add(buttons);
         Submit();
         NextTask();
+        StartTime();
+        StopTime();
 
     }
 
@@ -71,8 +75,12 @@ public class InputTask extends JPanel{
         Buttons.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 0));
         this.submit = new JButton("Submit");
         this.nextTask = new JButton("Next Task");
+        this.startTime = new JButton("Start Timer");
+        this.stopTime = new JButton("Stop Time");
         Buttons.add(submit);
         Buttons.add(nextTask);
+        Buttons.add(startTime);
+        Buttons.add(stopTime);
         return Buttons;
     }
 
@@ -106,6 +114,26 @@ public class InputTask extends JPanel{
         {
             public void actionPerformed(ActionEvent e) {
                 model.incrementTask();
+            }
+        });
+    }
+
+    private void StartTime()
+    {
+        startTime.addActionListener(new ActionListener() 
+        {
+            public void actionPerformed(ActionEvent e) {
+                model.StartTime();
+            }
+        });
+    }
+
+    private void StopTime()
+    {
+        stopTime.addActionListener(new ActionListener() 
+        {
+            public void actionPerformed(ActionEvent e) {
+                model.StopTime();
             }
         });
     }

@@ -16,7 +16,7 @@ public class Visual extends JFrame
         model = t;
 
         this.setTitle("Task Master");
-        this.setSize(400, 300);
+        this.setSize(450, 300);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
         this.setLocationRelativeTo(null);
