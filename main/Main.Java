@@ -1,10 +1,12 @@
 package main;
 import visual.Visual;
-import tasks.Task;
 public class Main
-{
+{    
     public static void main(String[] args) {
-        Visual frame = new Visual();
+        TaskModel model = new TaskModel();
+        Visual frame = new Visual(model);
+
         frame.setVisible(true);
+        model.addVisual(frame);
     }
 }

@@ -22,8 +22,14 @@ public class TaskList extends JPanel{
         tasks = t;
     }
 
+    public void repaintPanels() {
+        upperPanel.repaint();
+        lowerPanel.repaint();
+    }
+
     public void updateTasks(Task[] t) {
         tasks = t;
+        makeLowerPanel();
     }
 
     public void makeUpperPanel() {
