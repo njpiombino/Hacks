@@ -16,6 +16,7 @@ public class InputTask extends JPanel{
     private final JTextField sText;
     private final JTextField mText;
     private final JTextField hText;
+    private final JButton button;
 
     TaskModel model;
 
@@ -27,7 +28,6 @@ public class InputTask extends JPanel{
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.label = new JLabel("Write a Task");
         this.inputField = new JTextField(30);
-        EnterKey();
         this.add(label);
         
 
@@ -48,11 +48,16 @@ public class InputTask extends JPanel{
         fieldPanel.add(hText);
         fieldPanel.add(mText);
         fieldPanel.add(sText);
+
+        this.button = new JButton("Submit");
+        this.add(button);
+        EnterKey();
+
     }
 
     private void EnterKey()
     {
-        inputField.addActionListener(new ActionListener() 
+        button.addActionListener(new ActionListener() 
         {
             public void actionPerformed(ActionEvent e) {
                 String name = inputField.getText();
@@ -60,8 +65,16 @@ public class InputTask extends JPanel{
                 String m = mText.getText();
                 String s = sText.getText();
 
-                int[] times = {Integer.parseInt(h),Integer.parseInt(m),Integer.parseInt(s)};
-                model.addTask(new Task(name,times));
+                try
+                {
+                    int[] times = {Integer.parseInt(h),Integer.parseInt(m),Integer.parseInt(s)};
+                    model.addTask(new Task(name,times));
+                }
+                catch (NumberFormatException ex)
+                {
+                    JOptionPane.showMessageDialog(InputTask.this, "Please Input a Number!!! They look like this \"0\"","Not A Number",JOptionPane.ERROR_MESSAGE);
+                }
+                
             }
         });
     }
