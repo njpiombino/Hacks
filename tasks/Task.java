@@ -22,7 +22,16 @@ public class Task {
         return currentTimes;
     }
 
-    public void setCurrentTimes(int[] c) {
-        currentTimes = c;
+    public void incrementTime() {
+        currentTimes[2]++;
+        if (currentTimes[2] == 60) {
+            currentTimes[1]++;
+            currentTimes[2] = 0;
+
+            if (currentTimes[1] == 60) {
+                currentTimes[1] = 0;
+                currentTimes[0]++;
+            }
+        }
     }
 }

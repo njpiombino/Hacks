@@ -35,6 +35,10 @@ public class Visual extends JFrame
         this.repaint();
         this.revalidate();
     }
+
+    public void updateTasks() {
+        taskList.displayTasks();
+    }
 }
 
 
