@@ -22,14 +22,9 @@ public class TaskList extends JPanel{
         tasks = t;
     }
 
-    public void repaintPanels() {
-        upperPanel.repaint();
-        lowerPanel.repaint();
-    }
-
     public void updateTasks(Task[] t) {
         tasks = t;
-        makeLowerPanel();
+        displayTasks();
     }
 
     public void makeUpperPanel() {
@@ -54,6 +49,7 @@ public class TaskList extends JPanel{
     }
 
     public void displayTasks() {
+        lowerPanel.removeAll();
         for (int i = 0; i<tasks.length; i++) {
             int[] ct = tasks[i].getCurrentTimes();
             int[] gt = tasks[i].getGoalTimes();
@@ -65,5 +61,9 @@ public class TaskList extends JPanel{
             JLabel l = new JLabel(s);
             lowerPanel.add(l);
         }
+        lowerPanel.repaint();
+        this.repaint();
+        this.revalidate();
+        lowerPanel.revalidate();
     }
 }
