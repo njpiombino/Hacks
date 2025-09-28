@@ -18,7 +18,9 @@ public class InputTask extends JPanel{
     private final JTextField sText;
     private final JTextField mText;
     private final JTextField hText;
-    private final JButton button;
+    private final JPanel buttons;
+    private JButton submit;
+    private JButton nextTask;
 
     TaskModel model;
 
@@ -54,17 +56,30 @@ public class InputTask extends JPanel{
         fieldPanel.add(mText);
         fieldPanel.add(sText);
 
-        this.button = new JButton("Submit");
-        button.setAlignmentX(CENTER_ALIGNMENT);
+        buttons = Buttons();
+        buttons.setAlignmentX(CENTER_ALIGNMENT);
         this.add(Box.createVerticalStrut(5));
-        this.add(button);
+        this.add(buttons);
         EnterKey();
 
     }
 
+    private JPanel Buttons()
+    {
+        JPanel Buttons = new JPanel();
+        Buttons.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 0));
+        this.submit = new JButton("Submit");
+        this.nextTask = new JButton("Next Task");
+        // submit.setAlignmentX(LEFT_ALIGNMENT);
+        // nextTask.setAlignmentX(RIGHT_ALIGNMENT);
+        Buttons.add(submit);
+        Buttons.add(nextTask);
+        return Buttons;
+    }
+
     private void EnterKey()
     {
-        button.addActionListener(new ActionListener() 
+        submit.addActionListener(new ActionListener() 
         {
             public void actionPerformed(ActionEvent e) {
                 String name = inputField.getText();
