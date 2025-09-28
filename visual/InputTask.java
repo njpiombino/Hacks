@@ -28,11 +28,13 @@ public class InputTask extends JPanel{
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         this.label = new JLabel("Write a Task");
         this.inputField = new JTextField(30);
+        label.setAlignmentX(CENTER_ALIGNMENT);
         this.add(label);
         
 
         fieldPanel = new JPanel();
         fieldPanel.setLayout(new GridLayout(2,4,15,10));
+        fieldPanel.setAlignmentX(CENTER_ALIGNMENT);
         this.add(fieldPanel);
 
         fieldPanel.add(new JLabel("Task Name"));
@@ -41,15 +43,16 @@ public class InputTask extends JPanel{
         fieldPanel.add(new JLabel("Second"));
 
         fieldPanel.add(inputField);
-        hText = new JTextField();
-        mText = new JTextField();
-        sText = new JTextField();
+        hText = new JTextField("0");
+        mText = new JTextField("0");
+        sText = new JTextField("0");
         hText.setMaximumSize(new Dimension(3,2));
         fieldPanel.add(hText);
         fieldPanel.add(mText);
         fieldPanel.add(sText);
 
         this.button = new JButton("Submit");
+        button.setAlignmentX(CENTER_ALIGNMENT);
         this.add(button);
         EnterKey();
 
