@@ -22,14 +22,9 @@ public class TaskList extends JPanel{
         tasks = t;
     }
 
-    public void repaintPanels() {
-        upperPanel.repaint();
-        lowerPanel.repaint();
-    }
-
     public void updateTasks(Task[] t) {
         tasks = t;
-        makeLowerPanel();
+        displayTasks();
     }
 
     public void makeUpperPanel() {
@@ -50,10 +45,13 @@ public class TaskList extends JPanel{
         lowerPanel = new JPanel();
         lowerPanel.setLayout(new BoxLayout(lowerPanel, BoxLayout.Y_AXIS));
         displayTasks();
-        this.add(lowerPanel);
+        JScrollPane scrollPane = new JScrollPane(lowerPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setPreferredSize(new Dimension(200, 100));
+        this.add(scrollPane);
     }
 
     public void displayTasks() {
+        lowerPanel.removeAll();
         for (int i = 0; i<tasks.length; i++) {
             int[] ct = tasks[i].getCurrentTimes();
             int[] gt = tasks[i].getGoalTimes();
@@ -65,5 +63,9 @@ public class TaskList extends JPanel{
             JLabel l = new JLabel(s);
             lowerPanel.add(l);
         }
+        lowerPanel.repaint();
+        this.repaint();
+        this.revalidate();
+        lowerPanel.revalidate();
     }
 }

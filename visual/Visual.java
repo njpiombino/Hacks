@@ -32,6 +32,8 @@ public class Visual extends JFrame
 
     public void updateTasks(Task[] t) {
         taskList.updateTasks(t);
+        this.repaint();
+        this.revalidate();
     }
 }
 
