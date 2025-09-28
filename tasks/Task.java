@@ -4,10 +4,13 @@ public class Task {
     private String taskName;
     private int[] goalTimes;
     private int[] currentTimes = {0,0,0}; 
+    private int totalTime;
+    private int curTotal;
 
     public Task(String n, int[] g) {
         taskName = n;
         goalTimes = g;
+        totalTime = g[0] * 3600 + g[1] * 60 + g[2];
     }
 
     public String getName() {
@@ -20,6 +23,15 @@ public class Task {
 
     public int[] getCurrentTimes() {
         return currentTimes;
+    }
+
+    public int getTotalTime() {
+        return totalTime;
+    }
+
+    public int getCurTotal() {
+        curTotal = currentTimes[0] * 3600 + currentTimes[1] * 60 + currentTimes[2];
+        return curTotal;
     }
 
     public void incrementTime() {
