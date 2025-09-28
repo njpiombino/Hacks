@@ -8,6 +8,7 @@ public class TaskList extends JPanel{
     private Task[] tasks = {};
     JPanel upperPanel;
     JPanel lowerPanel;
+    Task currentTask;
 
     public TaskList() {
         this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
@@ -78,5 +79,9 @@ public class TaskList extends JPanel{
         this.repaint();
         this.revalidate();
         lowerPanel.revalidate();
+    }
+
+    public void setCurrent(Task t) {
+        currentTask = t;
     }
 }

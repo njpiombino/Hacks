@@ -38,5 +38,6 @@ public class TaskModel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         currentTask.incrementTime();
         frame.updateTasks(tasks);
+        frame.setCurrent(currentTask);
     }
 }
